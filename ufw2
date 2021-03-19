@@ -1,0 +1,5 @@
+# Allow traffic from OpenVPN client to enp3s0
+-A POSTROUTING -s 10.8.0.0/8 -o enp3s0 -j MASQUERADE
+COMMIT
+# END OPENVPN RULES
+#
