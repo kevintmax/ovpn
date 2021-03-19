@@ -1,5 +1,6 @@
 sudo apt update
-sudo apt install openvpn
+sudo apt install -y openvpn
+cd
 wget -P ~/ https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.4/EasyRSA-3.0.4.tgz
 tar xvf EasyRSA-3.0.4.tgz
 cd ~/EasyRSA-3.0.4/
