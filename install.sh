@@ -55,7 +55,7 @@ cp ~/ovpn/base.conf2 ~/client-configs/base.conf
 cp ~/ovpn/make_config.sh ~/client-configs/
 sudo chmod 700 ~/client-configs/make_config.sh
 cd ~/client-configs
-sudo ./make_config.sh vp
+sudo bash make_config.sh vp
 sudo cp ~/client-configs/keys/ta.key ~/client-configs/files/
 cd
 sudo chmod 644 ~/client-configs/files/ta.key 
