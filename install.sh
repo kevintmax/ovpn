@@ -30,13 +30,14 @@ rm -rf /etc/sysctl.conf; cp ~/ovpn/sysctl.conf /etc/sysctl.conf
 sudo sysctl -p
 fire=$(ip route | grep default | awk '{print $5}')
 rm /etc/ufw/before.rules
-cat ~/ovpn/ufw1 >> /etc/ufw/before.rules
+echo "-A POSTROUTING -s 10.8.0.0/8 -o $fire -j MASQUERADE" >> /etc/ufw/before.rules
 echo "# Allow traffic from OpenVPN client to $fire" >> /etc/ufw/before.rules
 echo "-A POSTROUTING -s 10.8.0.0/8 -o $fire -j MASQUERADE" >> /etc/ufw/before.rules
 echo "COMMIT" >> /etc/ufw/before.rules
 echo "# END OPENVPN RULES" >> /etc/ufw/before.rules
 echo "#" >> /etc/ufw/before.rules
-cp ~/ovpn/ufw >> /etc/default/ufw
+rm /etc/default/ufw
+cp ~/ovpn/ufw /etc/default/ufw
 sudo ufw allow 1194/udp
 sudo ufw allow OpenSSH
 sudo ufw disable
