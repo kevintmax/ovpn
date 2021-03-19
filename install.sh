@@ -45,4 +45,15 @@ sudo ufw disable
 sudo ufw enable
 sudo systemctl start openvpn@server
 sudo systemctl status openvpn@server
-
+sudo systemctl enable openvpn@server
+cd
+mkdir -p ~/client-configs/files
+cp ~/ovpn/base.conf1 ~/client-configs/base.conf
+myip=$(wget -qO- http://ipecho.net/plain)
+echo "remote $myip 1194" >> ~/client-configs/base.conf
+cp ~/ovpn/base.conf2 ~/client-configs/base.conf
+sudo chmod 700 ~/client-configs/make_config.sh
+cd ~/client-configs
+sudo ./make_config.sh vp
+sudo cp ~/client-configs/keys/ta.key ~/client-configs/files/
+sudo chmod 644 ta.key 
