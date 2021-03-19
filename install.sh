@@ -49,7 +49,7 @@ sudo systemctl enable openvpn@server
 cd
 mkdir -p ~/client-configs/files
 cp ~/ovpn/base.conf1 ~/client-configs/base.conf
-myip=$(wget -qO- http://ipecho.net/plain)
+myip=$(hostname -I | awk '{print $1}')
 echo "remote $myip 1194" >> ~/client-configs/base.conf
 cp ~/ovpn/base.conf2 ~/client-configs/base.conf
 sudo chmod 700 ~/client-configs/make_config.sh
