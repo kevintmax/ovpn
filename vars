@@ -89,7 +89,7 @@ fi
 set_var EASYRSA_REQ_COUNTRY	"KR"
 set_var EASYRSA_REQ_PROVINCE	"Jeju"
 set_var EASYRSA_REQ_CITY	"San Jeju"
-set_var EASYRSA_REQ_ORG	"Katalk"
+set_var EASYRSA_REQ_ORG	        "Katalk"
 set_var EASYRSA_REQ_EMAIL	"tree@katalk.com"
 set_var EASYRSA_REQ_OU		"Kakataxi"
 
