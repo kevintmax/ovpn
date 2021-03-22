@@ -1,11 +1,11 @@
 sudo apt update
 sudo apt install -y openvpn
 wget -P ~/ https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.4/EasyRSA-3.0.4.tgz
-tar xvf EasyRSA-3.0.4.tgz
+tar xvf ~/EasyRSA-3.0.4.tgz
 
 cat ~/ovpn/vars >> ~/EasyRSA-3.0.4/
 
-cd ~/EasyRSA-3.0.4/; ./easyrsa init-pki
+cd ~/EasyRSA-3.0.4/; ./easyrsa initx-pki
 cd ~/EasyRSA-3.0.4/; echo "" | ./easyrsa build-ca nopass
 cd ~/EasyRSA-3.0.4/; echo "" | ./easyrsa gen-req server nopass
 sudo cp ~/EasyRSA-3.0.4/pki/private/server.key /etc/openvpn/
