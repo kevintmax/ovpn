@@ -6,7 +6,7 @@ tar xvf ~/EasyRSA-3.0.4.tgz
 
 cat ~/ovpn/vars >> ~/EasyRSA-3.0.4/
 
-cd ~/EasyRSA-3.0.4/; ./easyrsa initx-pki
+cd ~/EasyRSA-3.0.4/; ./easyrsa init-pki
 cd ~/EasyRSA-3.0.4/; echo "" | ./easyrsa build-ca nopass
 cd ~/EasyRSA-3.0.4/; echo "" | ./easyrsa gen-req server nopass
 sudo cp ~/EasyRSA-3.0.4/pki/private/server.key /etc/openvpn/
@@ -19,7 +19,7 @@ cd ~/EasyRSA-3.0.4/; openvpn --genkey --secret ta.key
 sudo cp ~/EasyRSA-3.0.4/ta.key /etc/openvpn/
 sudo cp ~/EasyRSA-3.0.4/pki/dh.pem /etc/openvpn/
 
-mkdir -p ~/client-configs/keys
+mkdir -p ~/~/EasyRSA-3.0.4/client-configs/keys
 chmod -R 700 ~/client-configs
 cd ~/EasyRSA-3.0.4/; echo "" | ./easyrsa gen-req vagabond nopass
 cp pki/private/vagabond.key ~/client-configs/keys/
