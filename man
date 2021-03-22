@@ -19,7 +19,7 @@ cd ~/EasyRSA-3.0.4/; openvpn --genkey --secret ta.key
 sudo cp ~/EasyRSA-3.0.4/ta.key /etc/openvpn/
 sudo cp ~/EasyRSA-3.0.4/pki/dh.pem /etc/openvpn/
 
-mkdir -p ~/~/EasyRSA-3.0.4/client-configs/keys
+mkdir -p ~/EasyRSA-3.0.4/client-configs/keys
 chmod -R 700 ~/client-configs
 cd ~/EasyRSA-3.0.4/; echo "" | ./easyrsa gen-req vagabond nopass
 cp pki/private/vagabond.key ~/client-configs/keys/
@@ -73,7 +73,7 @@ echo "remote $myip 1194" >> ~/client-configs/base.conf
 cat ~/ovpn/base.conf2 >> ~/client-configs/base.conf
 
 sudo chmod 700 ~/ovpn/make_config.sh
-sudo cd ovpn; ./make_config.sh vagabond
+cd ~/ovpn; ./make_config.sh vagabond
 
 sudo cp ~/client-configs/keys/ta.key ~/client-configs/files/
 cd ~/client-configs/files/; sudo chmod 644 ta.key 
