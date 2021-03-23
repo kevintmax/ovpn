@@ -35,6 +35,7 @@ rm -rf /etc/openvpn/server.conf
 cp ~/ovpn/server.conf /etc/openvpn/server.conf
 rm -rf /etc/sysctl.conf
 cp ~/ovpn/sysctl.conf /etc/sysctl.conf
+sudo sysctl -p
 
 rm -rf /etc/ufw/before.rules
 cp ~/ovpn/before.rules1 > /etc/ufw/before.rules
