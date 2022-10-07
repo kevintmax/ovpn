@@ -32,13 +32,13 @@ sudo cp /etc/openvpn/ca.crt ~/client-configs/keys/
 sudo cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/
 sudo gzip -d /etc/openvpn/server.conf.gz
 sudo rm -rf /etc/openvpn/server.conf
-cp ~/ovpn/server.conf /etc/openvpn/server.conf
+sudo cp ~/ovpn/server.conf /etc/openvpn/server.conf
 sudo rm -rf /etc/sysctl.conf
-cp ~/ovpn/sysctl.conf /etc/sysctl.conf
+sudo cp ~/ovpn/sysctl.conf /etc/sysctl.conf
 sudo sysctl -p
 
-rm -rf /etc/ufw/before.rules
-cp ~/ovpn/before.rules1 > /etc/ufw/before.rules
+sudo rm -rf /etc/ufw/before.rules
+sudo cp ~/ovpn/before.rules1 > /etc/ufw/before.rules
 
 fire=$(ip route | grep default | awk '{print $5}')
 echo "# START OPENVPN RULES" >> /etc/ufw/before.rules 
