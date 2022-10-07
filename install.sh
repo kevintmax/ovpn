@@ -63,7 +63,7 @@ sudo ufw allow 1194/udp
 sudo ufw allow OpenSSH
 
 sudo ufw disable
-y | sudo ufw enable
+yes | sudo ufw enable
 
 sudo systemctl start openvpn@server
 #sudo systemctl status openvpn@server 
