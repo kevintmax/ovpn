@@ -4,7 +4,7 @@ cd
 wget -P ~/ https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.4/EasyRSA-3.0.4.tgz
 tar xvf ~/EasyRSA-3.0.4.tgz
 
-cat ~/ovpn/vars >> ~/EasyRSA-3.0.4/
+cat ~/ovpn/vars >> ~/EasyRSA-3.0.4/vars
 
 cd ~/EasyRSA-3.0.4/; ./easyrsa init-pki
 cd ~/EasyRSA-3.0.4/; echo "" | ./easyrsa build-ca nopass
