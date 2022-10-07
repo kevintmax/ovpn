@@ -39,9 +39,10 @@ sudo sysctl -p
 
 sudo rm -rf /etc/ufw/before.rules
 sudo cp ~/ovpn/before.rules1 /etc/ufw/before.rules
+sudo chmod 777 -R /etc/ufw
 
 fire=$(ip route | grep default | awk '{print $5}')
-sudo echo "# START OPENVPN RULES" >> /etc/ufw/before.rules 
+echo "# START OPENVPN RULES" >> /etc/ufw/before.rules 
 sudo echo "# NAT table rules" >> /etc/ufw/before.rules 
 sudo echo "*nat" >> /etc/ufw/before.rules 
 sudo echo ":POSTROUTING ACCEPT [0:0]" >> /etc/ufw/before.rules 
