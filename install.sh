@@ -41,15 +41,15 @@ sudo rm -rf /etc/ufw/before.rules
 sudo cp ~/ovpn/before.rules1 /etc/ufw/before.rules
 
 fire=$(ip route | grep default | awk '{print $5}')
-echo "# START OPENVPN RULES" >> /etc/ufw/before.rules 
-echo "# NAT table rules" >> /etc/ufw/before.rules 
-echo "*nat" >> /etc/ufw/before.rules 
-echo ":POSTROUTING ACCEPT [0:0]" >> /etc/ufw/before.rules 
-echo "# Allow traffic from OpenVPN client to $fire" >> /etc/ufw/before.rules 
-echo "-A POSTROUTING -s 10.8.0.0/8 -o $fire -j MASQUERADE" >> /etc/ufw/before.rules 
-echo "COMMIT" >> /etc/ufw/before.rules 
-echo "# END OPENVPN RULES" >> /etc/ufw/before.rules 
-echo "#" >> /etc/ufw/before.rules 
+sudo echo "# START OPENVPN RULES" >> /etc/ufw/before.rules 
+sudo echo "# NAT table rules" >> /etc/ufw/before.rules 
+sudo echo "*nat" >> /etc/ufw/before.rules 
+sudo echo ":POSTROUTING ACCEPT [0:0]" >> /etc/ufw/before.rules 
+sudo echo "# Allow traffic from OpenVPN client to $fire" >> /etc/ufw/before.rules 
+sudo echo "-A POSTROUTING -s 10.8.0.0/8 -o $fire -j MASQUERADE" >> /etc/ufw/before.rules 
+sudo echo "COMMIT" >> /etc/ufw/before.rules 
+sudo echo "# END OPENVPN RULES" >> /etc/ufw/before.rules 
+sudo echo "#" >> /etc/ufw/before.rules 
 
 cat ~/ovpn/before.rules2 >> /etc/ufw/before.rules
 
