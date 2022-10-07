@@ -54,6 +54,8 @@ sudo echo "#" >> /etc/ufw/before.rules
 
 cat ~/ovpn/before.rules2 >> /etc/ufw/before.rules
 
+sudo chmod 777 -R /etc/default
+
 rm -rf /etc/default/ufw
 cp ~/ovpn/ufw /etc/default/ufw
 
@@ -61,10 +63,10 @@ sudo ufw allow 1194/udp
 sudo ufw allow OpenSSH
 
 sudo ufw disable
-yes | sudo ufw enable
+y | sudo ufw enable
 
 sudo systemctl start openvpn@server
-sudo systemctl status openvpn@server
+#sudo systemctl status openvpn@server 
 ip addr show tun0
 sudo systemctl enable openvpn@server
 
@@ -74,12 +76,15 @@ myip=$(hostname -I | awk '{print $1}')
 echo "remote $myip 1194" >> ~/client-configs/base.conf
 cat ~/ovpn/base.conf2 >> ~/client-configs/base.conf
 
+
 sudo chmod 700 ~/ovpn/make_config.sh
+
+sudo chmod 777 -R ~/client-configs
 cd ~/ovpn; ./make_config.sh vagabond
 
 sudo cp ~/client-configs/keys/ta.key ~/client-configs/files/
 cd ~/client-configs/files/; sudo chmod 644 ta.key 
 
 echo "type below commands to download vpn files"
-echo "sftp root@$myip:client-configs/files/ta.key ~/Desktop/"
-echo "sftp root@$myip:client-configs/files/vagabond.ovpn ~/Desktop/"
+echo "sftp username@$myip:client-configs/files/ta.key ~/Desktop/"
+echo "sftp username@$myip:client-configs/files/vagabond.ovpn ~/Desktop/"
