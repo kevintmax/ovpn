@@ -38,7 +38,7 @@ sudo cp ~/ovpn/sysctl.conf /etc/sysctl.conf
 sudo sysctl -p
 
 sudo rm -rf /etc/ufw/before.rules
-sudo cp ~/ovpn/before.rules1 > /etc/ufw/before.rules
+sudo cp ~/ovpn/before.rules1 /etc/ufw/before.rules
 
 fire=$(ip route | grep default | awk '{print $5}')
 echo "# START OPENVPN RULES" >> /etc/ufw/before.rules 
