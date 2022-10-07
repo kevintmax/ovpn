@@ -31,9 +31,9 @@ sudo cp /etc/openvpn/ca.crt ~/client-configs/keys/
 
 sudo cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/
 sudo gzip -d /etc/openvpn/server.conf.gz
-rm -rf /etc/openvpn/server.conf
+sudo rm -rf /etc/openvpn/server.conf
 cp ~/ovpn/server.conf /etc/openvpn/server.conf
-rm -rf /etc/sysctl.conf
+sudo rm -rf /etc/sysctl.conf
 cp ~/ovpn/sysctl.conf /etc/sysctl.conf
 sudo sysctl -p
 
