@@ -86,4 +86,4 @@ sudo cp ~/client-configs/keys/ta.key ~/client-configs/files/
 cd ~/client-configs/files/; sudo chmod 644 ta.key 
 
 echo "type below commands to download vpn files"
-echo "sftp root@$myip:client-configs/files/vagabond.ovpn ~/Desktop/"
+echo "sftp -i ~/.ssh/master root@66.42.41.167:client-configs/files/vagabond.ovpn ~/Desktop/"
